@@ -1,0 +1,32 @@
+{
+  "name": "tech-blog",
+  "version": "1.0.0",
+  "description": "MVC Tech Blog site",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/J-Ross01/Tech-Blog.git"
+  },
+  "keywords": [
+    "MVC"
+  ],
+  "author": "Jarrett Delaney",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/J-Ross01/Tech-Blog/issues"
+  },
+  "homepage": "https://github.com/J-Ross01/Tech-Blog#readme",
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "connect-session-sequelize": "^7.1.7",
+    "dotenv": "^16.3.2",
+    "express": "^4.18.2",
+    "express-handlebars": "^7.1.2",
+    "express-session": "^1.17.3",
+    "mysql2": "^3.7.1",
+    "sequelize": "^6.35.2"
+  }
+}
