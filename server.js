@@ -2,12 +2,12 @@ const express = require('express');
 const { engine } = require('express-handlebars'); 
 const session = require('express-session');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
+const postRoutes = require('./routes/post-routes');
 
 const sequelize = require('./config/config');
 const User = require('./models/user');
 
 const userRoutes = require('./routes/user-routes');
-
 
 require('dotenv').config();
 
@@ -56,6 +56,7 @@ app.use(session({
   });
 
 app.use('/users', userRoutes); 
+app.use('/posts', postRoutes);
 
 sequelize.sync({ force: false }).then(() => {
   app.listen(PORT, () => console.log(`Server running on http://localhost:${PORT}`));
