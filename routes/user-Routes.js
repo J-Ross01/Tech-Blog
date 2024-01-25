@@ -1,6 +1,12 @@
 const router = require('express').Router();
 const { User } = require('../models/user');
 
+const path = require('../views');
+
+router.get('/signup', (req, res) => {
+    res.render('signup');
+});
+
 router.post('/signup', async (req, res) => {
     try {
         const newUser = await User.create({
@@ -19,6 +25,10 @@ router.post('/signup', async (req, res) => {
     } catch (err) {
         res.status(500).json(err);
     }
+});
+
+router.get('/login', (req, res) => {
+    res.render('login'); 
 });
 
 router.post('/login', async (req, res) => {
