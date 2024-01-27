@@ -1,5 +1,6 @@
-/* Define your styles here */
 body {
+    margin: 0;
+    padding: 0;
     font-family: Arial, sans-serif;
 }
 
@@ -7,11 +8,13 @@ header {
     background-color: #333;
     color: #fff;
     padding: 10px;
+    text-align: center; 
 }
 
 nav ul {
     list-style: none;
     padding: 0;
+    text-align: center;
 }
 
 nav ul li {
@@ -21,13 +24,14 @@ nav ul li {
 
 .container {
     max-width: 800px;
-    margin: 0 auto;
+    margin: 20px auto; 
+    padding: 20px; 
 }
 
 .post {
     border: 1px solid #ccc;
-    padding: 10px;
+    padding: 20px;
     margin-bottom: 20px;
+    background-color: #f9f9f9;
 }
 
-/* Add more styles as needed */

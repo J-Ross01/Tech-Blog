@@ -8,6 +8,7 @@ const sequelize = require('./config/config');
 const User = require('./models/user');
 const userRoutes = require('./routes/user-routes');
 const path = require('path');
+const exphbs = require('express-handlebars');
 require('dotenv').config();
 
 const PORT = process.env.PORT || 3000;
@@ -33,7 +34,22 @@ app.use(session({
 }));
 
 app.get('/profile/:id', async (req, res) => {
+    try {
+        const userId = req.params.id;
+        const user = await User.findByPk(userId);
 
+        if (!user) {
+            return res.status(404).json({ message: 'User not found' });
+        }
+
+        const username = user.username;
+
+
+        res.status(200).json({ username });
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: 'Internal server error' });
+    }
 });
 
 app.get('/', (req, res) => {
