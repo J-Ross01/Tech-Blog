@@ -1,3 +1,29 @@
-        <h1>Welcome to My Tech Blog</h1>
-        <p>This is the home page of my blog. Here you can find various posts and articles on technology.</p>
-    
+<!-- home.handlebars -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+</head>
+<body>
+    <header>
+    </header>
+
+    <main>
+        <h1>Welcome to the Tech Blog!</h1>
+        {{#each posts as |post|}}
+        <article>
+            <h2>{{post.title}}</h2>
+            <p>Written by {{post.author}}</p>
+            <p>{{post.summary}}</p>
+        </article>
+        {{else}}
+        <p>No posts to display.</p>
+        {{/each}}
+    </main>
+
+    <footer>
+    </footer>
+</body>
+</html>

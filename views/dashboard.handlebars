@@ -1,19 +1,33 @@
-{{#extend "main"}}
-    {{#content "body"}}
-        <h2>Welcome, {{username}}!</h2>
-        <h3>Your Dashboard</h3>
-        <div class="blog-posts">
-            {{#if blogPosts.length}}
-                {{#each blogPosts}}
-                    <div class="blog-post">
-                        <h4>{{title}}</h4>
-                        <p>{{content}}</p>
-                    </div>
-                {{/each}}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+</head>
+<body>
+    <header>
+    </header>
+
+    <main>
+        <h1>Your Dashboard</h1>
+        <section>
+            <h2>Your Posts</h2>
+            {{#each userPosts as |post|}}
+            <article>
+                <h3>{{post.title}}</h3>
+                <p>{{post.summary}}</p>
+            </article>
             {{else}}
-                <p>No blog posts found.</p>
-            {{/if}}
-        </div>
-        <button id="add-comment-btn">Add Blog Comment</button>
-    {{/content}}
-{{/extend}}
+            <p>You haven't created any posts yet.</p>
+            {{/each}}
+        </section>
+        <section>
+            <h2>Create a New Post</h2>
+        </section>
+    </main>
+
+    <footer>
+    </footer>
+</body>
+</html>
