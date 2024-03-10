@@ -36,7 +36,7 @@ app.use('/users', userRoutes);
 app.use('/posts', postRoutes);
 app.use('/comments', commentRoutes);
 
-app.get('/', (req, res) => {
+app.get('/',  (req, res) => {
   res.render('home');
 });
 
