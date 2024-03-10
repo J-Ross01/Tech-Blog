@@ -1,46 +1,39 @@
 const { User } = require('../models/user');
+const bcrypt = require('bcrypt');
 
 const userController = {
   createUser: async (req, res) => {
     try {
-      const existingUser = await User.findOne({ where: { email: req.body.email } });
-      if (existingUser) {
-        return res.status(400).json({ message: 'User already exists with this email' });
-      }
+        const { username, email, password } = req.body;
 
-      const newUser = await User.create({
-        username: req.body.username,
-        email: req.body.email,
-        password: req.body.password,
-      });
+        const existingUser = await User.findOne({ where: { email } });
+        if (existingUser) {
+            return res.status(400).json({ message: 'Email already in use' });
+        }
 
+        const newUser = await User.create({
+            username,
+            email,
+            password: bcrypt.hashSync(password, 10)
+        });
 
-      res.status(200).json({
-        id: newUser.id,
-        username: newUser.username,
-        email: newUser.email
-      });
+        req.session.userId = newUser.id;
+        req.session.loggedIn = true;
+
+        res.redirect('/registered-success');
     } catch (err) {
-      console.error(err);
-      res.status(500).json(err);
+        console.error(err);
+        res.status(500).json({ message: 'Error creating user' });
     }
-  },
+},
 
   loginUser: async (req, res) => {
     try {
       const { email, password } = req.body;
       const user = await User.findOne({ where: { email } });
 
-      if (!user) {
-        res.status(400).json({ message: 'User not found' });
-        return;
-      }
-
-      const validPassword = await user.checkPassword(password);
-
-      if (!validPassword) {
-        res.status(400).json({ message: 'Invalid password' });
-        return;
+      if (!user || !bcrypt.compareSync(password, user.password)) {
+        return res.status(401).json({ message: 'Incorrect email or password' });
       }
 
       req.session.save(() => {
@@ -48,20 +41,21 @@ const userController = {
         req.session.username = user.username;
         req.session.loggedIn = true;
 
-        res.json({ user: user, message: 'You are now logged in!' });
+        res.redirect('/dashboard'); 
       });
     } catch (err) {
-      res.status(500).json(err);
+      console.error(err);
+      res.status(500).json({ message: 'Error during login' });
     }
   },
 
   logoutUser: (req, res) => {
     if (req.session.loggedIn) {
       req.session.destroy(() => {
-        res.status(204).end();
+        res.redirect('/'); 
       });
     } else {
-      res.status(404).end();
+      res.status(404).json({ message: 'No active session' });
     }
   },
 };
