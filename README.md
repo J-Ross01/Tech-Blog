@@ -31,6 +31,7 @@ As a developer who writes about tech I want to have a platform where I can share
    ```
    npm start
    ```
+4. Run the application in your local browser. 
 
 ## Usage
 
@@ -51,10 +52,12 @@ As a developer who writes about tech I want to have a platform where I can share
 - Handlebars installation- https://handlebarsjs.com/guide/#installation
 - Using bcrypt to hash passwords- https://auth0.com/blog/hashing-in-action-understanding-bcrypt/
 - File structure for MVC: https://stackoverflow.com/questions/17529710/what-is-the-folder-structure-to-work-with-javascript-mvc-framework
+- Source for helping create the functionality for a comment action: https://stackoverflow.com/questions/62818292/adding-comments-to-a-post-in-js
+- Source for creating a post action: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/try...catch
 
 ## Contributing
 
-Contributions to this project are welcome. 
+Contributions to this project are welcome: https://github.com/J-Ross01/Tech-Blog.git
 
 ## License 
 
