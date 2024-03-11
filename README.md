@@ -2,15 +2,15 @@
 
 ## Description
 
-This CMS-style blog site is a platform for developers who write about technology. It allows users to publish articles, blog posts, and share their thoughts and opinions. Designed with a focus on ease of use and functionality, this blog site meets the needs of tech enthusiasts who want to share their insights with a wider audience.
+This MVC blog site is a platform for developers who write about technology. It allows users to publish articles, blog posts, and share their thoughts and opinions. Designed with a focus on ease of use and functionality, this blog site meets the needs of tech enthusiasts who want to share their insights with a wider audience.
 
 ## User Story
 
 As a developer who writes about tech I want to have a platform where I can share thoughts and interact with others about the industry. 
 
-## Features
+## Features & Future Features
 
-- Homepage with existing blog posts, navigation links, and login options.
+- Homepage, navigation links, and login options.
 - User authentication system for sign up and sign in.
 - Ability to create, update, and delete blog posts.
 - Dashboard for managing user's own blog posts.
@@ -34,15 +34,15 @@ As a developer who writes about tech I want to have a platform where I can share
 
 ## Usage
 
-1. **Homepage View:** On visiting the site, users are presented with the homepage that includes existing blog posts, navigation links, and login options.
+1. **Homepage View:** On visiting the site, users are presented with the homepage that will include existing blog posts, navigation links, and login options.
 
 2. **Signing Up:** Users can sign up by creating a username and password.
 
 3. **User Dashboard:** Once logged in, users can view their dashboard, which includes their posts and the option to add new posts.
 
-4. **Adding Blog Posts:** Users can add new blog posts with a title and content.
+4. **Adding Blog Posts:** Users will be able to add new blog posts with a title and content.
 
-5. **Commenting:** Users can comment on existing blog posts.
+5. **Commenting:** Users will be able to comment on existing blog posts.
 
 6. **Account Management:** Users can log out or update their account details.
 
